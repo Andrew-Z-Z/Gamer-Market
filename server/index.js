@@ -38,7 +38,7 @@ app.get('/api/products/:productId', (req, res, next) => {
   const { productId } = req.params;
   const isNumber = new RegExp('^\\d+$');
   if (!isNumber.test(productId)) {
-    next(new ClientError('ProductId must be a positive integer!', 500));
+    next(new ClientError('ProductId must be a positive integer!', 400));
     return;
   }
   const sql = `
