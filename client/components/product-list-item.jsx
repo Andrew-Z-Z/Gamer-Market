@@ -6,7 +6,6 @@ const ProductListItem = props => {
     <div className="row row-cols-3" >
       {
         products.map(product =>
-        // use call-back in render method
           <div className="col-12 col-md-4 mb-4 cursor" key={product.name} >
             <div className="card border-secondary" onClick={() => props.click('details', { productId: product.productId })}>
               <div className="card-top mt-1">

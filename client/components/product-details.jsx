@@ -4,7 +4,7 @@ class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {}
+      product: null
     };
   }
 
@@ -18,6 +18,7 @@ class ProductDetails extends React.Component {
 
   render() {
     const product = this.state.product;
+    if (!product) return null;
     return (
       <div className="container">
         <div className="row my-4">
