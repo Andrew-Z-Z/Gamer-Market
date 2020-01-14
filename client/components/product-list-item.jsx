@@ -1,18 +1,27 @@
 import React from 'react';
 
 const ProductListItem = props => {
-  const price = props.item.price;
+  const products = props.items;
   return (
-    <div className="container-fluid col-3 border border-dark d-flex flex-column justify-content-around m-2 bg-white">
-      <div className="row">
-        <img src={props.item.image} alt={props.item.name} className="img-fluid" />
-      </div>
-      <div className="d-flex flex-column row mx-1">
-        <p className="h6">{props.item.name}</p>
-        <p>{'$' + (price / 100).toFixed(2)}</p>
-        <p>{props.item.shortDescription}</p>
-      </div>
-    </div>
+    <div className="row row-cols-3">
+      {
+        products.map(product =>
+          <div className="col-4 mb-4" key={product.name}>
+            <div className="card border-secondary">
+              <div className="card-top mt-1">
+                <img src={product.image} alt={product.name} className="fill card-img-top" />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title">{product.name}</h5>
+                <div className="card-text">
+                  <p>{'$' + (product.price / 100).toFixed(2)}</p>
+                  <p>{product.shortDescription}</p>
+                </div>
+              </div>
+            </div>
+          </div >
+        )}
+    </div >
   );
 };
 

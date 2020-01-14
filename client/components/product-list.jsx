@@ -23,12 +23,8 @@ class ProductList extends React.Component {
   render() {
     const products = this.state.products;
     return (
-      <div className="container d-flex flex-wrap justify-content-around bg-info">
-        {
-          products.map(product =>
-            <ProductListItem item={product} key={product.name}/>
-          )
-        }
+      <div className="container">
+        <ProductListItem items={products} />
       </div>
     );
   }
