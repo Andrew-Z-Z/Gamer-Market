@@ -24,7 +24,7 @@ class ProductList extends React.Component {
     const products = this.state.products;
     return (
       <div className="container">
-        <ProductListItem items={products} />
+        <ProductListItem items={products} click={this.props.setView} />
       </div>
     );
   }

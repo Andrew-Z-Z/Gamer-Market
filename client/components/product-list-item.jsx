@@ -3,11 +3,12 @@ import React from 'react';
 const ProductListItem = props => {
   const products = props.items;
   return (
-    <div className="row row-cols-3">
+    <div className="row row-cols-3" >
       {
         products.map(product =>
-          <div className="col-4 mb-4" key={product.name}>
-            <div className="card border-secondary">
+        // use call-back in render method
+          <div className="col-12 col-md-4 mb-4 cursor" key={product.name} >
+            <div className="card border-secondary" onClick={() => props.click('details', { productId: product.productId })}>
               <div className="card-top mt-1">
                 <img src={product.image} alt={product.name} className="fill card-img-top" />
               </div>
