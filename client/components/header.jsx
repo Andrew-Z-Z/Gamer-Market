@@ -8,7 +8,7 @@ const Header = props => {
         <p className={property}>
         $Wicked Sales
         </p>
-        <p className={property}>
+        <p className={property + ' cursor'} onClick={() => props.click('cart', {})} >
           {
           `${props.cartItemCount} Items `
           }

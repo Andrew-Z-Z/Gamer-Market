@@ -1,3 +1,6 @@
+.card-left, .row, .cover, .fill {
+  height: 99%;
+}
 .card {
   height: 500px;
 }
@@ -5,9 +8,15 @@
   height: 50%;
 }
 .fill {
-  height: 100%;
   object-fit: scale-down;
 }
 .cursor {
   cursor: pointer;
+}
+.cover {
+  width: 100%;
+  object-fit: scale-down;
+}
+.card.cart-card {
+  height: 400px;
 }
