@@ -75,7 +75,8 @@ app.get('/api/cart', (req, res, next) => {
   db.query(sql, params)
     .then(response => {
       res.json(response.rows);
-    });
+    })
+    .catch(err => next(err));
 });
 
 app.post('/api/cart', (req, res, next) => {
@@ -102,7 +103,8 @@ app.post('/api/cart', (req, res, next) => {
           .then(id => {
             const obj = { price: price.price, cartId: id.rows[0].cartId };
             return obj;
-          });
+          })
+          .catch(err => next(err));
       } else {
         const obj = { price: price.price, cartId: req.session.cartId };
         return obj;
@@ -119,7 +121,8 @@ app.post('/api/cart', (req, res, next) => {
       return db.query(sql, params)
         .then(cartItemId => {
           return cartItemId.rows[0];
-        });
+        })
+        .catch(err => next(err));
     })
     .then(cartItemId => {
       // SQL join 'using' / 'on'
@@ -138,7 +141,8 @@ app.post('/api/cart', (req, res, next) => {
       db.query(sql, params)
         .then(result => {
           res.status(201).json(result.rows[0]);
-        });
+        })
+        .catch(err => next(err));
     })
     .catch(err => next(err));
 });
