@@ -1,11 +1,20 @@
 import React from 'react';
 
-const Header = () => {
+const Header = props => {
+  const property = 'h5 m-2';
   return (
     <div className="container-fluid">
-      <p className="h5 text-white bg-dark">
+      <div className="d-flex justify-content-between text-white bg-dark">
+        <p className={property}>
         $Wicked Sales
-      </p>
+        </p>
+        <p className={property}>
+          {
+          `${props.cartItemCount} Items `
+          }
+          <i className="fas fa-shopping-cart"></i>
+        </p>
+      </div>
     </div>
   );
 };
