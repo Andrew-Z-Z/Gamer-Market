@@ -14,7 +14,7 @@ const CartSummary = props => {
       <button className="btn btn-outline-success mb-4" onClick={() => props.click('catalog', { params: {} })} >Back to Catalog</button>
       {
         cartArray.map(individual => {
-          return <CartSummaryItem item={individual} key={individual.productId} />;
+          return <CartSummaryItem item={individual} key={individual.cartItemId} />;
         })
       }
       <p className="my-4 h2"> {`Item Total $${totalPrice}`} </p>
