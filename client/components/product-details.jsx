@@ -22,7 +22,7 @@ class ProductDetails extends React.Component {
     return (
       <div className="container">
         <div className="row my-4">
-          <button className="btn btn-outline-success" onClick={() => this.props.click('catalog', { params: {} })} >Back to Catalog</button>
+          <button className="btn btn-outline-success" onClick={() => this.props.click('catalog', {})} >Back to Catalog</button>
         </div>
         <div className="row">
           <img src={product.image} alt={product.name} className="img-thumbnail col-4"/>

@@ -11,13 +11,14 @@ const CartSummary = props => {
   return (
     <div className="container">
       <p className="h2 my-4">My Cart</p>
-      <button className="btn btn-outline-success mb-4" onClick={() => props.click('catalog', { params: {} })} >Back to Catalog</button>
+      <button className="btn btn-outline-success mb-4" onClick={() => props.click('catalog', {})} >Back to Catalog</button>
       {
         cartArray.map(individual => {
           return <CartSummaryItem item={individual} key={individual.cartItemId} />;
         })
       }
       <p className="my-4 h2"> {`Item Total $${totalPrice}`} </p>
+      <button className="btn btn-outline-danger mb-4" onClick={() => props.click('checkout', {})} >CheckOut</button>
     </div>
   );
 };
