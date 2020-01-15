@@ -144,6 +144,27 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// orders
+app.post('/api/orders', (req, res, next) => {
+  const cartId = req.session.cartId;
+  if (!cartId) return res.status(400).json({ Error: 'You have no cart to place order!' });
+  const { name, creditCard, shippingAddress } = req.body;
+  if (!name || !creditCard || !shippingAddress) return res.status(400).json({ Error: 'Name / CreditCard / Shipping Address are required input fields!' });
+
+  const sql = `
+  insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+  values ($1, $2, $3, $4)
+  returning "orderId", "createdAt", "name", "creditCard", "shippingAddress";
+  `;
+  const params = [cartId, name, creditCard, shippingAddress];
+  db.query(sql, params)
+    .then(order => {
+      delete req.session.cartId;
+      res.status(201).json(order.rows[0]);
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
