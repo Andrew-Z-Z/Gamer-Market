@@ -103,8 +103,7 @@ app.post('/api/cart', (req, res, next) => {
           .then(id => {
             const obj = { price: price.price, cartId: id.rows[0].cartId };
             return obj;
-          })
-          .catch(err => next(err));
+          });
       } else {
         const obj = { price: price.price, cartId: req.session.cartId };
         return obj;
@@ -121,8 +120,7 @@ app.post('/api/cart', (req, res, next) => {
       return db.query(sql, params)
         .then(cartItemId => {
           return cartItemId.rows[0];
-        })
-        .catch(err => next(err));
+        });
     })
     .then(cartItemId => {
       // SQL join 'using' / 'on'
