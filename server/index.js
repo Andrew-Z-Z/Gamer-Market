@@ -147,9 +147,9 @@ app.post('/api/cart', (req, res, next) => {
 // orders
 app.post('/api/orders', (req, res, next) => {
   const cartId = req.session.cartId;
-  if (!cartId) return res.status(400).json({ Error: 'You have no cart to place order!' });
+  if (!cartId) return next(new ClientError('Error: \'You have no cart to place order!\' ', 400));
   const { name, creditCard, shippingAddress } = req.body;
-  if (!name || !creditCard || !shippingAddress) return res.status(400).json({ Error: 'Name / CreditCard / Shipping Address are required input fields!' });
+  if (!name || !creditCard || !shippingAddress) return next(new ClientError('Error: \'Name / CreditCard / Shipping Address are required input fields!\''));
 
   const sql = `
   insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
