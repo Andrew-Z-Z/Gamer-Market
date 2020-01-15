@@ -3,7 +3,7 @@ import React from 'react';
 const CartSummaryItem = props => {
   const item = props.item;
   return (
-    <div className="card cart-card my-2" >
+    <div className="card cart-card my-4" >
       <div className="row no-gutters">
         <div className="col-6 card-left">
           <img src={item.image} alt={item.name} className="cover" />

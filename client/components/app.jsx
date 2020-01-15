@@ -93,7 +93,7 @@ export default class App extends React.Component {
     } else if (name === 'cart') {
       renders = <CartSummary click={this.setView} cartArray={this.state.cart} />;
     } else if (name === 'checkout') {
-      renders = <CheckOut click={this.placeOrder} />;
+      renders = <CheckOut click={this.placeOrder} cartArray={this.state.cart} back={this.setView} />;
     }
     return (
       <div className="container-fluid">
