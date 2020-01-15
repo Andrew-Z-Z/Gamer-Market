@@ -65,11 +65,18 @@ export default class App extends React.Component {
   }
 
   render() {
+    const name = this.state.view.name;
+    let renders;
+    if (name === 'catalog') {
+      renders = <ProductList setView={this.setView} />;
+    } else if (name === 'details') {
+      renders = <ProductDetails view={this.state.view} click={this.setView} add={this.addToCart} />;
+    }
     return (
       <div className="container-fluid">
         <Header cartItemCount={this.state.cart.length} />
         {
-          this.state.view.name === 'catalog' ? <ProductList setView={this.setView} /> : <ProductDetails view={this.state.view} click={this.setView} add={this.addToCart} />
+          renders
         }
       </div>
     );
