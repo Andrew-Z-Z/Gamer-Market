@@ -22,18 +22,18 @@ class ProductDetails extends React.Component {
     return (
       <div className="container">
         <div className="row my-4">
-          <button className="btn btn-outline-success" onClick={() => this.props.click('catalog', { params: {} })} >Back to Catalog</button>
+          <button className="btn btn-outline-success" onClick={() => this.props.click('catalog', {})} >Back to Catalog</button>
         </div>
         <div className="row">
-          <img src={product.image} alt={product.name} className="img-thumbnail col-4"/>
-          <div className="col-8">
+          <img src={product.image} alt={product.name} className="img-thumbnail col-md-4"/>
+          <div className="col-md-8 my-4">
             <p className="h4">{product.name}</p>
             <p> {'$' + (product.price / 100).toFixed(2)} </p>
             <p> {product.shortDescription} </p>
             <button className="btn btn-primary" onClick={() => this.props.add(product)} >Add To Cart</button>
           </div>
         </div>
-        <div className="row">
+        <div className="row mt-md-4 mt-2">
           <p> {product.longDescription} </p>
         </div>
       </div>
