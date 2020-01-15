@@ -136,11 +136,10 @@ app.post('/api/cart', (req, res, next) => {
         where "c"."cartItemId" = $1
       `;
       const params = [cartItemId.cartItemId];
-      db.query(sql, params)
+      return db.query(sql, params)
         .then(result => {
           res.status(201).json(result.rows[0]);
-        })
-        .catch(err => next(err));
+        });
     })
     .catch(err => next(err));
 });
