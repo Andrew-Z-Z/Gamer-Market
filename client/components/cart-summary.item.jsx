@@ -13,6 +13,7 @@ const CartSummaryItem = props => {
             <h5 className="card-title"> {item.name} </h5>
             <p className="card-text h4"> {'$' + (item.price / 100).toFixed(2)} </p>
             <p className="card-te"> {item.shortDescription} </p>
+            <button className="btn btn-outline-danger" onClick={() => props.remove(item.cartItemId)} >Remove</button>
           </div>
         </div>
       </div>
