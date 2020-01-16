@@ -14,7 +14,7 @@ const CartSummary = props => {
       <button className="btn btn-outline-success" onClick={() => props.click('catalog', {})} >Back to Catalog</button>
       {
         cartArray.map(individual => {
-          return <CartSummaryItem item={individual} key={individual.cartItemId} />;
+          return <CartSummaryItem item={individual} key={individual.cartItemId} remove={props.remove} />;
         })
       }
       <div className="d-flex justify-content-between align-items-center my-2">

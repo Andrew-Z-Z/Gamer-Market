@@ -144,6 +144,22 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.delete('/api/cart/:cartItemId', (req, res, next) => {
+  const { cartItemId } = req.params;
+  const sql = `
+  delete from "cartItems"
+    where "cartItemId" = $1
+    returning *;
+  `;
+  const params = [cartItemId];
+  db.query(sql, params)
+    .then(response => {
+      if (!response.rows[0]) throw new ClientError(`Cannot find cart item with Id: ${cartItemId}`, 404);
+      res.status(204).end();
+    })
+    .catch(err => next(err));
+});
+
 // orders
 app.post('/api/orders', (req, res, next) => {
   const cartId = req.session.cartId;
