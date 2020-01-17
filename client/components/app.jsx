@@ -109,7 +109,7 @@ export default class App extends React.Component {
       renders = <CheckOut click={this.placeOrder} cartArray={this.state.cart} back={this.setView} />;
     }
     return (
-      <div className="container-fluid">
+      <div className="container-fluid bg-light">
         <Header cartItemCount={this.state.cart.length} click={this.setView} />
         {
           renders

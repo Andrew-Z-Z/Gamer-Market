@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderNav from './header-nav';
 
 const Header = props => {
   const property = 'h5 m-2';
@@ -14,6 +15,9 @@ const Header = props => {
           }
           <i className="fas fa-shopping-cart"></i>
         </p>
+      </div>
+      <div className="navigation-bar" >
+        <HeaderNav />
       </div>
     </div>
   );
